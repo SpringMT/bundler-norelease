@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["today.is.sky.blue.sky@gmail.com"]
   spec.summary       = %q{gem generator for no release}
   spec.description   = %q{gem generator for no release}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/SpringMT/bundler-norelease"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
