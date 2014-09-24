@@ -1,6 +1,6 @@
 # Bundler::Norelease
 
-TODO: Write a gem description
+Disable `rake relese` task for `bundle gem GEM`
 
 ## Installation
 
@@ -18,7 +18,29 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+`bundler-norelease gem GEM`
+
+or you use bundler installed by master
+
+`bundle norelease gem GEM`
+
+So, generate gem related files.
+
+```
+% bundler-norelease gem hoge
+      create  hoge/Gemfile
+      create  hoge/.gitignore
+      create  hoge/lib/hoge.rb
+      create  hoge/lib/hoge/version.rb
+      create  hoge/LICENSE.txt
+      create  hoge/hoge.gemspec
+      create  hoge/.consolerc
+      create  hoge/Rakefile
+      create  hoge/README.md
+       force  hoge/Rakefile
+```
+
+In Rakefile, added `Rake::Task[:release].clear`
 
 ## Contributing
 
@@ -27,3 +49,10 @@ TODO: Write usage instructions here
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
+
+## Reference
+
+* http://spring-mt.hatenablog.com/entry/2014/09/24/233321
+
+(For Japanese)
+
