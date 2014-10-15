@@ -21,7 +21,9 @@ module Bundler
     method_option :ext, :type => :boolean, :default => false, :banner => "Generate the boilerplate for C extension code"
     method_option :test, :type => :string, :lazy_default => 'rspec', :aliases => '-t', :banner =>
       "Generate a test directory for your library: 'rspec' is the default, but 'minitest' is also supported."
-    def gem(name)
+    def gem(gem_name)
+      name = gem_name.chomp("/") # remove trailing slash if present
+      target = File.join(Dir.pwd, name)
       underscored_name = name.tr('-', '_')
       namespaced_path = name.tr('-', '/')
       constant_name = name.split('_').map{|p| p[0..0].upcase + p[1..-1] }.join
@@ -44,7 +46,7 @@ module Bundler
       bundler.run
       Bundler::Norelease::CLI.source_root(File.join(File.expand_path('../', __dir__), 'templates'))
       opts[:force] = true
-      template("newgem/Rakefile.tt", File.join(bundler.target, "Rakefile"), opts)
+      template("newgem/Rakefile.tt", File.join(target, "Rakefile"), opts)
     end
 
     private
