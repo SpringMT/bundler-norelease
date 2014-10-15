@@ -1,6 +1,6 @@
 # Bundler::Norelease
 
-Disable `rake relese` task for `bundle gem GEM`
+Disable `rake release` task for `bundle gem GEM`
 
 ## Installation
 
